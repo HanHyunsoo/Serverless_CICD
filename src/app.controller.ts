@@ -14,4 +14,12 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('/env')
+  getEnv(): object {
+    return {
+      a: process.env.TEST1,
+      b: process.env.TEST2,
+    };
+  }
 }

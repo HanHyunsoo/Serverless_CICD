@@ -19,6 +19,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+      - name: Create .env file
+        run: |
+          echo "TEST1=A" >> .env
+          echo "TEST2=B" >> .env
       - name: serverless deploy
         uses: serverless/github-action@v3.2
         with:
